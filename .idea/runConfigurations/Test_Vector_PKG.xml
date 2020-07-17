@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Test Vector PKG" type="GoTestRunConfiguration" factoryName="Go Test">
+    <module name="gometrik" />
+    <working_directory value="$PROJECT_DIR$/src/vector" />
+    <framework value="gotest" />
+    <kind value="PACKAGE" />
+    <package value="github.com/nodejayes/gometrik/src/vector" />
+    <method v="2" />
+  </configuration>
+</component>
