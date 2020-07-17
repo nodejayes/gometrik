@@ -1,6 +1,8 @@
 package vector
 
-import "math"
+import (
+	"github.com/nodejayes/gometrik/src/algorithm"
+)
 
 type Triangle struct {
 	a []float64
@@ -25,17 +27,25 @@ func (ctx *Triangle) GetC() []float64 {
 }
 
 func (ctx *Triangle) GetEdgeCB() float64 {
-	return ctx.pythagoras(ctx.b[0], ctx.b[1], ctx.c[0], ctx.c[1])
+	return algorithm.Pythagoras(ctx.b[0], ctx.b[1], ctx.c[0], ctx.c[1])
 }
 
 func (ctx *Triangle) GetEdgeAC() float64 {
-	return ctx.pythagoras(ctx.c[0], ctx.c[1], ctx.a[0], ctx.a[1])
+	return algorithm.Pythagoras(ctx.c[0], ctx.c[1], ctx.a[0], ctx.a[1])
 }
 
 func (ctx *Triangle) GetEdgeAB() float64 {
-	return ctx.pythagoras(ctx.b[0], ctx.b[1], ctx.a[0], ctx.a[1])
+	return algorithm.Pythagoras(ctx.b[0], ctx.b[1], ctx.a[0], ctx.a[1])
 }
 
-func (ctx *Triangle) pythagoras(ax, ay, bx, by float64) float64 {
-	return math.Sqrt(math.Pow(ax-bx, 2) + math.Pow(ay-by, 2))
+func (ctx *Triangle) GetAngleAlpha() float64 {
+	return algorithm.CosineTheorem(ctx.GetEdgeCB(), ctx.GetEdgeAC(), ctx.GetEdgeAB(), true)
+}
+
+func (ctx *Triangle) GetAngleBeta() float64 {
+	return algorithm.CosineTheorem(ctx.GetEdgeAC(), ctx.GetEdgeAB(), ctx.GetEdgeCB(), true)
+}
+
+func (ctx *Triangle) GetAngleGamma() float64 {
+	return algorithm.CosineTheorem(ctx.GetEdgeAB(), ctx.GetEdgeAC(), ctx.GetEdgeCB(), true)
 }

@@ -56,3 +56,31 @@ func TestTriangle_GetEdgeCB(t *testing.T) {
 	g.Expect(data).ToNot(gomega.BeNil())
 	g.Expect(data.GetEdgeCB()).To(gomega.Equal(2.23606797749979))
 }
+
+func TestTriangle_GetAngleAlpha(t *testing.T) {
+	g := gomega.NewGomegaWithT(t)
+	data := NewTriangle(A, B, C)
+	g.Expect(data).ToNot(gomega.BeNil())
+	g.Expect(data.GetAngleAlpha()).To(gomega.Equal(22.3801350519596))
+}
+
+func TestTriangle_GetAngleBeta(t *testing.T) {
+	g := gomega.NewGomegaWithT(t)
+	data := NewTriangle(A, B, C)
+	g.Expect(data).ToNot(gomega.BeNil())
+	g.Expect(data.GetAngleBeta()).To(gomega.Equal(37.8749836510982))
+}
+
+func TestTriangle_GetAngleGamma(t *testing.T) {
+	g := gomega.NewGomegaWithT(t)
+	data := NewTriangle(A, B, C)
+	g.Expect(data).ToNot(gomega.BeNil())
+	g.Expect(data.GetAngleGamma()).To(gomega.Equal(119.7448812969422))
+}
+
+func TestTriangle_AngleSumMustHave180Degrees(t *testing.T) {
+	g := gomega.NewGomegaWithT(t)
+	data := NewTriangle(A, B, C)
+	g.Expect(data).ToNot(gomega.BeNil())
+	g.Expect(data.GetAngleGamma() + data.GetAngleBeta() + data.GetAngleAlpha()).To(gomega.Equal(float64(180)))
+}
