@@ -1,13 +1,17 @@
 package vector
 
 type ITriangle interface {
-	GetA() []float64
-	GetB() []float64
-	GetC() []float64
-	GetEdgeCB() float64
-	GetEdgeAC() float64
-	GetEdgeAB() float64
-	GetAngleAlpha() float64
-	GetAngleBeta() float64
-	GetAngleGamma() float64
+	A() []float64
+	B() []float64
+	C() []float64
+	EdgeCB() float64
+	EdgeAC() float64
+	EdgeAB() float64
+	AngleAlpha() float64
+	AngleBeta() float64
+	AngleGamma() float64
+	Diameter() float64
+	Radius() float64
+	Scope() float64
+	Area() float64
 }
