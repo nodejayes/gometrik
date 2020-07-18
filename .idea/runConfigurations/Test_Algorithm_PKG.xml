@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Test Algorithm PKG" type="GoTestRunConfiguration" factoryName="Go Test">
+    <module name="gometrik" />
+    <working_directory value="$PROJECT_DIR$/src/algorithm" />
+    <framework value="gotest" />
+    <kind value="PACKAGE" />
+    <package value="github.com/nodejayes/gometrik/src/algorithm" />
+    <directory value="$PROJECT_DIR$/" />
+    <filePath value="$PROJECT_DIR$/" />
+    <method v="2" />
+  </configuration>
+</component>
