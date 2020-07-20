@@ -115,3 +115,79 @@ func TestTriangle_HeightFrom(t *testing.T) {
 	g.Expect(data.HeightFrom("C")).To(gomega.Equal(1.3728129459672895))
 	g.Expect(data.HeightFrom("")).To(gomega.Equal(0.0))
 }
+
+func TestTriangle_ShortestDistance_Negative(t *testing.T) {
+	g := gomega.NewGomegaWithT(t)
+	data := NewTriangle([]float64{
+		386130, 5692254,
+	}, []float64{
+		386408.967053963,
+		5692913.35517462,
+	}, []float64{
+		386106.870525168,
+		5692632.47844243,
+	})
+	g.Expect(data).ToNot(gomega.BeNil())
+	g.Expect(data.EdgeAB()).To(gomega.Equal(715.941243046222))
+	g.Expect(data.EdgeAC()).To(gomega.Equal(379.18452498739))
+	g.Expect(data.EdgeCB()).To(gomega.Equal(412.49733501657795))
+	g.Expect(data.HeightFrom("A")).To(gomega.Equal(292.9317227829379))
+	g.Expect(data.ShortestDistance("A")).To(gomega.Equal(379.18452498739))
+}
+
+func TestTriangle_ShortestDistance_Positive(t *testing.T) {
+	g := gomega.NewGomegaWithT(t)
+	data := NewTriangle([]float64{
+		386130, 5692254,
+	}, []float64{
+		386106.870525168,
+		5692632.47844243,
+	}, []float64{
+		386211.636432768,
+		5692238.19060928,
+	})
+	g.Expect(data).ToNot(gomega.BeNil())
+	g.Expect(data.EdgeAB()).To(gomega.Equal(379.18452498739))
+	g.Expect(data.EdgeAC()).To(gomega.Equal(83.15313577986396))
+	g.Expect(data.EdgeCB()).To(gomega.Equal(407.96910515995535))
+	g.Expect(data.HeightFrom("A")).To(gomega.Equal(74.83891948829964))
+	g.Expect(data.ShortestDistance("A")).To(gomega.Equal(74.83891948829964))
+}
+
+func TestTriangle_ShortestDistance_Negative1(t *testing.T) {
+	g := gomega.NewGomegaWithT(t)
+	data := NewTriangle([]float64{
+		386130, 5692254,
+	}, []float64{
+		386211.636432768,
+		5692238.19060928,
+	}, []float64{
+		386259.794025127,
+		5692052.3088027,
+	})
+	g.Expect(data).ToNot(gomega.BeNil())
+	g.Expect(data.EdgeAB()).To(gomega.Equal(83.15313577986396))
+	g.Expect(data.EdgeAC()).To(gomega.Equal(239.84542527868626))
+	g.Expect(data.EdgeCB()).To(gomega.Equal(192.01874835387844))
+	g.Expect(data.HeightFrom("A")).To(gomega.Equal(75.06238601969734))
+	g.Expect(data.ShortestDistance("A")).To(gomega.Equal(83.15313577986396))
+}
+
+func TestTriangle_ShortestDistance_Negative2(t *testing.T) {
+	g := gomega.NewGomegaWithT(t)
+	data := NewTriangle([]float64{
+		386130, 5692254,
+	}, []float64{
+		386211.636432768,
+		5692238.19060928,
+	}, []float64{
+		386259.794025127,
+		5692052.3088027,
+	})
+	g.Expect(data).ToNot(gomega.BeNil())
+	g.Expect(data.EdgeAB()).To(gomega.Equal(83.15313577986396))
+	g.Expect(data.EdgeAC()).To(gomega.Equal(239.84542527868626))
+	g.Expect(data.EdgeCB()).To(gomega.Equal(192.01874835387844))
+	g.Expect(data.HeightFrom("A")).To(gomega.Equal(75.06238601969734))
+	g.Expect(data.ShortestDistance("A")).To(gomega.Equal(83.15313577986396))
+}

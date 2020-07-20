@@ -77,6 +77,33 @@ func (ctx *Triangle) HeightFrom(point string) float64 {
 	}
 }
 
+func (ctx *Triangle) ShortestDistance(point string) float64 {
+	h := ctx.HeightFrom(point)
+	switch point {
+	case "A":
+		return snapHeight(ctx.EdgeAB(), ctx.EdgeAC(), ctx.EdgeCB(), h)
+	case "B":
+		return snapHeight(ctx.EdgeAB(), ctx.EdgeCB(), ctx.EdgeCB(), h)
+	case "C":
+		return snapHeight(ctx.EdgeCB(), ctx.EdgeAC(), ctx.EdgeCB(), h)
+	default:
+		return 0.0
+	}
+}
+
 func (ctx *Triangle) Area() float64 {
 	return 0.0
+}
+
+func snapHeight(l1, l2, l3, h float64) float64 {
+	side1 := l3 - algorithm.PythagorasLength(l1, h)
+	side2 := l3 - algorithm.PythagorasLength(l2, h)
+	if side1 < 0 || side2 < 0 {
+		if side1 < side2 {
+			return l2
+		} else {
+			return l1
+		}
+	}
+	return h
 }
