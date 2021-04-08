@@ -7,5 +7,5 @@ func Pythagoras(ax, ay, bx, by float64) float64 {
 }
 
 func PythagorasLength(l1, l2 float64) float64 {
-	return math.Sqrt(math.Pow(l1, 2) + math.Pow(l2, 2))
+	return math.Sqrt((l1 * l1) + (l2 * l2))
 }

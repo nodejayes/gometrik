@@ -6,9 +6,9 @@ import (
 )
 
 func CosineTheorem(edge1, edge2, edge3 float64, inDegrees bool) float64 {
-	a2 := math.Pow(edge1, 2)
-	b2 := math.Pow(edge2, 2)
-	c2 := math.Pow(edge3, 2)
+	a2 := edge1 * edge1
+	b2 := edge2 * edge2
+	c2 := edge3 * edge3
 	bc2 := -(2 * edge2 * edge3)
 	cosAlpha := (a2 - (b2 + c2)) / bc2
 	res := math.Acos(cosAlpha)
